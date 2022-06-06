@@ -1,5 +1,6 @@
 package com.github.maikoncarlos.apiexternacep.exception.handler;
 
+import com.github.maikoncarlos.apiexternacep.exception.CepNullException;
 import com.github.maikoncarlos.apiexternacep.exception.StandardError;
 import feign.FeignException;
 import org.springframework.http.HttpStatus;
@@ -37,5 +38,18 @@ public class CustomErrorDecoder extends ResponseEntityExceptionHandler {
         error.setPath(request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
+
+    @ExceptionHandler(CepNullException.class)
+    public final ResponseEntity<StandardError> handleCepNullException(Exception ex, HttpServletRequest request) {
+        StandardError error = new StandardError();
+        error.setTimestamp(Instant.now());
+        error.setStatus(HttpStatus.BAD_REQUEST.value());
+        error.setError("cep informado inválido");
+        error.setMessage(ex.toString());
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+
 
 }
