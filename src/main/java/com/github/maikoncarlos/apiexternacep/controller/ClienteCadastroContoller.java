@@ -1,7 +1,6 @@
 package com.github.maikoncarlos.apiexternacep.controller;
 
 import com.github.maikoncarlos.apiexternacep.dto.response.EnderecoResponse;
-import com.github.maikoncarlos.apiexternacep.exception.CepNullException;
 import com.github.maikoncarlos.apiexternacep.service.EnderecoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
