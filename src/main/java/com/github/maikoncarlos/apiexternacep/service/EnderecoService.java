@@ -14,9 +14,12 @@ public class EnderecoService {
     private ComunicacaoApiExterna comunicacaoApiExterna;
 
     public EnderecoResponse findByCep(String cep) {
+        log.info("COMUNICANDO COM API EXTERNA VIACEP");
+        log.info("PESQUISA PELO CEP {} ", cep);
         EnderecoResponse end = comunicacaoApiExterna.getEnderecoPorCep(cep);
-        log.info("OBJ - CEP PARA CONSULTA : " + end.getCep());
+        log.info("RETORNO {} -> SUCESSO : ", end);
         return end;
     }
 }
+
 

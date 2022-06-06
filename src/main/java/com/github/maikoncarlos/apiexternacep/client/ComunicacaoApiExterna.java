@@ -1,6 +1,7 @@
 package com.github.maikoncarlos.apiexternacep.client;
 
 import com.github.maikoncarlos.apiexternacep.dto.response.EnderecoResponse;
+import feign.FeignException;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
